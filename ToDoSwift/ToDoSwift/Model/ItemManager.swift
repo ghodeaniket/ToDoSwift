@@ -9,6 +9,9 @@
 import Foundation
 
 class ItemManager: NSObject {
+    
+    static let shared = ItemManager()
+    
     var toDoCount: Int { return toDoItems.count }
     var doneCount: Int { return doneItems.count }
     private var toDoItems: [ToDoItem] = []
@@ -26,7 +29,7 @@ class ItemManager: NSObject {
         return documentURL.appendingPathComponent("toDoItems.plist")
     }
     
-    override init() {
+    private override init() {
         super.init()
         
         NotificationCenter.default.addObserver(

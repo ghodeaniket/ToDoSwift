@@ -15,6 +15,11 @@
 		25F1860B1F4DD68D0031B083 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F1860A1F4DD68D0031B083 /* ToDoItem.swift */; };
 		25F1860E1F4DEFD80031B083 /* ItemManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F1860D1F4DEFD80031B083 /* ItemManagerTests.swift */; };
 		25F186111F4DF06D0031B083 /* ItemManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F186101F4DF06D0031B083 /* ItemManager.swift */; };
+		25F1861C1F4E95040031B083 /* DoneTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F1861B1F4E95040031B083 /* DoneTasksViewController.swift */; };
+		25F1861E1F4E951F0031B083 /* PendingTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F1861D1F4E951F0031B083 /* PendingTasksViewController.swift */; };
+		25F186211F4E95600031B083 /* PendingTasksDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F186201F4E95600031B083 /* PendingTasksDataProvider.swift */; };
+		25F186231F4E95760031B083 /* DoneTasksDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F186221F4E95760031B083 /* DoneTasksDataProvider.swift */; };
+		25F186251F4E9A770031B083 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F186241F4E9A770031B083 /* ItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +45,11 @@
 		25F1860A1F4DD68D0031B083 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoItem.swift; path = Model/ToDoItem.swift; sourceTree = "<group>"; };
 		25F1860D1F4DEFD80031B083 /* ItemManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemManagerTests.swift; sourceTree = "<group>"; };
 		25F186101F4DF06D0031B083 /* ItemManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemManager.swift; path = Model/ItemManager.swift; sourceTree = "<group>"; };
+		25F1861B1F4E95040031B083 /* DoneTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoneTasksViewController.swift; path = Controllers/DoneTasksViewController.swift; sourceTree = "<group>"; };
+		25F1861D1F4E951F0031B083 /* PendingTasksViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingTasksViewController.swift; path = Controllers/PendingTasksViewController.swift; sourceTree = "<group>"; };
+		25F186201F4E95600031B083 /* PendingTasksDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PendingTasksDataProvider.swift; path = Controllers/PendingTasksDataProvider.swift; sourceTree = "<group>"; };
+		25F186221F4E95760031B083 /* DoneTasksDataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DoneTasksDataProvider.swift; path = Controllers/DoneTasksDataProvider.swift; sourceTree = "<group>"; };
+		25F186241F4E9A770031B083 /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemCell.swift; path = Controllers/ItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,8 +92,9 @@
 			isa = PBXGroup;
 			children = (
 				25631B831F4DC00400DB6594 /* AppDelegate.swift */,
+				25F1861F1F4E95270031B083 /* Controller */,
 				25F1860C1F4DD7E70031B083 /* Model */,
-				25631BA31F4DCC8900DB6594 /* Assets */,
+				25631BA31F4DCC8900DB6594 /* View */,
 				25631B8F1F4DC00400DB6594 /* Info.plist */,
 			);
 			path = ToDoSwift;
@@ -98,14 +109,14 @@
 			path = ToDoSwiftTests;
 			sourceTree = "<group>";
 		};
-		25631BA31F4DCC8900DB6594 /* Assets */ = {
+		25631BA31F4DCC8900DB6594 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				25631B871F4DC00400DB6594 /* Main.storyboard */,
 				25631B8A1F4DC00400DB6594 /* Assets.xcassets */,
 				25631B8C1F4DC00400DB6594 /* LaunchScreen.storyboard */,
 			);
-			name = Assets;
+			name = View;
 			sourceTree = "<group>";
 		};
 		25F1860C1F4DD7E70031B083 /* Model */ = {
@@ -124,6 +135,18 @@
 				25F1860D1F4DEFD80031B083 /* ItemManagerTests.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		25F1861F1F4E95270031B083 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				25F1861B1F4E95040031B083 /* DoneTasksViewController.swift */,
+				25F1861D1F4E951F0031B083 /* PendingTasksViewController.swift */,
+				25F186201F4E95600031B083 /* PendingTasksDataProvider.swift */,
+				25F186221F4E95760031B083 /* DoneTasksDataProvider.swift */,
+				25F186241F4E9A770031B083 /* ItemCell.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,9 +255,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25F186251F4E9A770031B083 /* ItemCell.swift in Sources */,
 				25F1860B1F4DD68D0031B083 /* ToDoItem.swift in Sources */,
+				25F1861E1F4E951F0031B083 /* PendingTasksViewController.swift in Sources */,
+				25F1861C1F4E95040031B083 /* DoneTasksViewController.swift in Sources */,
 				25F186111F4DF06D0031B083 /* ItemManager.swift in Sources */,
 				25631B841F4DC00400DB6594 /* AppDelegate.swift in Sources */,
+				25F186231F4E95760031B083 /* DoneTasksDataProvider.swift in Sources */,
+				25F186211F4E95600031B083 /* PendingTasksDataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
