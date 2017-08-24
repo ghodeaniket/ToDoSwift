@@ -270,7 +270,10 @@
 				25F186111F4DF06D0031B083 /* ItemManager.swift in Sources */,
 				25631B841F4DC00400DB6594 /* AppDelegate.swift in Sources */,
 				25F186211F4E95600031B083 /* TasksDataProvider.swift in Sources */,
+<<<<<<< HEAD
 				25F186281F4EC4BD0031B083 /* Constants.swift in Sources */,
+=======
+>>>>>>> origin/master
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
