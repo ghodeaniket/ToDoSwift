@@ -63,6 +63,14 @@ class ItemManager: NSObject {
         return toDoItems[index]
     }
     
+    func remove(at index: Int){
+        toDoItems.remove(at: index)
+    }
+    
+    func removeDoneItem(at index: Int){
+        doneItems.remove(at: index)
+    }
+    
     func checkItem(at index: Int) {
         let item = toDoItems.remove(at: index)
         doneItems.append(item)

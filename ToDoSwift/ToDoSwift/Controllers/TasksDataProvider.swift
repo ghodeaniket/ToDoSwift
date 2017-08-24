@@ -8,19 +8,28 @@
 
 import UIKit
 
-class PendingTasksDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate, ItemManagerSettable {
+@objc protocol ItemManagerSettable {
+    var itemManager: ItemManager? { get set }
+    var isPendingList: Bool { get set}
+}
+
+class TasksDataProvider: NSObject, UITableViewDataSource, UITableViewDelegate, ItemManagerSettable {
     var itemManager: ItemManager?
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+    var isPendingList: Bool = false
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
         
         guard let itemManager = itemManager else { return 0 }
         
-        return itemManager.toDoCount
+        let numberOfRows: Int
+
+        if isPendingList {
+            numberOfRows = itemManager.toDoCount
+        } else{
+            numberOfRows = itemManager.doneCount
+        }
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView,
@@ -33,10 +42,15 @@ class PendingTasksDataProvider: NSObject, UITableViewDataSource, UITableViewDele
         guard let itemManager = itemManager else { fatalError() }
         
         let item: ToDoItem
+        var checked = false
+        if isPendingList {
+            item = itemManager.item(at: indexPath.row)
+        } else {
+            item = itemManager.doneItem(at: indexPath.row)
+            checked = true
+        }
         
-        item = itemManager.item(at: indexPath.row)
-        
-        cell.configCell(with: item)
+        cell.configCell(with: item, checked: checked)
         
         return cell
     }
@@ -57,7 +71,11 @@ class PendingTasksDataProvider: NSObject, UITableViewDataSource, UITableViewDele
         
         guard let itemManager = itemManager else { fatalError() }
         
-        // remove done item
+        if isPendingList {
+            itemManager.remove(at: indexPath.row)
+        } else {
+            itemManager.removeDoneItem(at: indexPath.row)
+        }
         
         tableView.reloadData()
         
@@ -67,8 +85,11 @@ class PendingTasksDataProvider: NSObject, UITableViewDataSource, UITableViewDele
         
         guard let itemManager = itemManager else { fatalError() }
         
-        itemManager.checkItem(at: indexPath.row)
-        
+        if isPendingList {
+            itemManager.checkItem(at: indexPath.row)
+        } else {
+            itemManager.uncheckItem(at: indexPath.row)
+        }
         tableView.reloadData()
     }
 

@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="n5Z-YQ-YKS" customClass="ItemCell" customModule="ToDoSwift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="n5Z-YQ-YKS" customClass="ItemCell" customModule="ToDoSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n5Z-YQ-YKS" id="os2-Rh-jic">
@@ -81,7 +81,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RwB-IS-y2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="CPY-Vj-db2" customClass="DoneTasksDataProvider" customModule="ToDoSwift" customModuleProvider="target"/>
+                <customObject id="CPY-Vj-db2" customClass="TasksDataProvider" customModule="ToDoSwift" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="429.53523238380814"/>
         </scene>
@@ -101,7 +101,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Sx8-mK-yzP" customClass="ItemCell" customModule="ToDoSwift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="Sx8-mK-yzP" customClass="ItemCell" customModule="ToDoSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sx8-mK-yzP" id="bjt-cs-aLk">
@@ -150,7 +150,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pending Tasks" id="xFR-21-H99">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GBG-38-lm1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GBG-38-lm1">
+                            <connections>
+                                <action selector="addNewToDoItem:" destination="SEb-5t-m9T" id="ify-7t-AV0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dataProvider" destination="LfX-aI-mTW" id="rV8-Tt-H1L"/>
@@ -158,7 +162,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yog-LG-5wm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="LfX-aI-mTW" customClass="PendingTasksDataProvider" customModule="ToDoSwift" customModuleProvider="target"/>
+                <customObject id="LfX-aI-mTW" customClass="TasksDataProvider" customModule="ToDoSwift" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="-225.33733133433284"/>
         </scene>

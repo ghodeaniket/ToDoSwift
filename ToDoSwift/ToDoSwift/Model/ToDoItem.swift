@@ -10,10 +10,8 @@ import Foundation
 
 struct ToDoItem: Equatable {
     private let titleKey = "titleKey"
-    private let itemDescriptionKey = "itemDescriptionKey"
     private let timestampKey = "timestampKey"
     let title: String
-    let itemDescription: String?
     let timestamp: Double?
     
     init(title: String,
@@ -21,7 +19,6 @@ struct ToDoItem: Equatable {
          timestamp: Double? = nil) {
         
         self.title = title
-        self.itemDescription = itemDescription
         self.timestamp = timestamp
     }
     
@@ -31,16 +28,12 @@ struct ToDoItem: Equatable {
         
         self.title = title
         
-        self.itemDescription = dict[itemDescriptionKey] as? String
         self.timestamp = dict[timestampKey] as? Double
     }
     
     var plistDict: [String:Any] {
         var dict = [String:Any]()
         dict[titleKey] = title
-        if let itemDescription = itemDescription {
-            dict[itemDescriptionKey] = itemDescription
-        }
         if let timestamp = timestamp {
             dict[timestampKey] = timestamp
         }
@@ -51,9 +44,6 @@ struct ToDoItem: Equatable {
 
 func ==(lhs: ToDoItem, rhs: ToDoItem) -> Bool {
     if lhs.timestamp != rhs.timestamp {
-        return false
-    }
-    if lhs.itemDescription != rhs.itemDescription {
         return false
     }
     if lhs.title != rhs.title {
