@@ -42,12 +42,8 @@ class PendingTasksViewController: UIViewController {
             let taskNameTextField = alertController.textFields![0] as UITextField
             let title = taskNameTextField.text
             if let title = title, title != "" {
-<<<<<<< HEAD
                 let timestamp = Date().timeIntervalSince1970
                 let item = ToDoItem(title: title, timestamp: timestamp)
-=======
-                let item = ToDoItem(title: title)
->>>>>>> origin/master
                 self.itemManager.add(item)
                 self.tableView.reloadData()
             }
