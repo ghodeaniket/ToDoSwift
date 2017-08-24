@@ -20,6 +20,19 @@ class ItemCell: UITableViewCell {
     }()
     
     func configCell(with item: ToDoItem, checked: Bool = false) {
+        let border = CALayer()
+        let width = CGFloat(2.0)
+        border.borderColor = Constants.themeColor.cgColor
+        border.frame = CGRect(x: 0, y: frame.size.height - width, width:  frame.size.width, height: frame.size.height)
+        
+        border.borderWidth = width
+        layer.addSublayer(border)
+        layer.masksToBounds = true
+        
+        if let timestamp = item.timestamp {
+            let date = Date(timeIntervalSince1970: timestamp)
+            dateLabel.text = dateFormatter.string(from: date)
+        }
         
         if checked {
             let attributedString = NSAttributedString(
@@ -28,15 +41,8 @@ class ItemCell: UITableViewCell {
                     NSUnderlineStyle.styleSingle.rawValue])
             
             titleLabel.attributedText = attributedString
-            dateLabel.text = nil
         } else {
             titleLabel.text = item.title
-            
-            if let timestamp = item.timestamp {
-                let date = Date(timeIntervalSince1970: timestamp)
-                
-                dateLabel.text = dateFormatter.string(from: date)
-            }
         }
     }
 }

@@ -15,11 +15,12 @@ class ItemManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        sut = ItemManager()
+        sut = ItemManager.shared
     }
     
     override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        sut.removeAll()
+        sut = nil
         super.tearDown()
     }
 
@@ -30,6 +31,8 @@ class ItemManagerTests: XCTestCase {
     func testDoneCount_Initially_ShouldBeZero() {
         XCTAssertEqual(sut.doneCount, 0, "Initially done count should be 0")
     }
+    
+    
     
     func test_AddItem_IncreasesToDoCountToOne() {
         sut.add(ToDoItem(title: ""))
@@ -46,6 +49,20 @@ class ItemManagerTests: XCTestCase {
         XCTAssertEqual(returnedItem.title, item.title)
     }
 
+    func test_RemoveItem_ShouldDecrementTheToDoCount() {
+        let item = ToDoItem(title: "Foo")
+        sut.add(item)
+        sut.remove(at: 0)
+        XCTAssertEqual(sut.toDoCount, 0, "Count should be zero")
+    }
+    
+    func test_RemoveDoneItem_ShouldDecrementTheDoneCount() {
+        let item = ToDoItem(title: "Foo")
+        sut.add(item)
+        sut.checkItem(at: 0)
+        sut.removeDoneItem(at: 0)
+        XCTAssertEqual(sut.doneCount, 0, "Count should be zero")
+    }
     
     func test_CheckItemAt_ChangesCounts() {
         sut.add(ToDoItem(title: ""))

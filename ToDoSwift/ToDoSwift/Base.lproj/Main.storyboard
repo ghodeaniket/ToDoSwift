@@ -13,7 +13,7 @@
         <!--Done Tasks-->
         <scene sceneID="Fih-iG-r9J">
             <objects>
-                <viewController id="9Tz-AA-RxD" customClass="DoneTasksViewController" customModule="ToDoSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="9Tz-AA-RxD" customClass="DoneTasksViewController" customModule="ToDoSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P9u-rK-Dcn"/>
                         <viewControllerLayoutGuide type="bottom" id="nWL-MD-gx2"/>
@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="n5Z-YQ-YKS" customClass="ItemCell" customModule="ToDoSwift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="n5Z-YQ-YKS" customClass="ItemCell" customModule="ToDoSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="n5Z-YQ-YKS" id="os2-Rh-jic">
@@ -81,14 +81,14 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RwB-IS-y2p" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="CPY-Vj-db2" customClass="DoneTasksDataProvider" customModule="ToDoSwift" customModuleProvider="target"/>
+                <customObject id="CPY-Vj-db2" customClass="TasksDataProvider" customModule="ToDoSwift" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="429.53523238380814"/>
         </scene>
         <!--Pending Tasks-->
         <scene sceneID="u6i-Vs-7by">
             <objects>
-                <viewController id="SEb-5t-m9T" customClass="PendingTasksViewController" customModule="ToDoSwift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="SEb-5t-m9T" customClass="PendingTasksViewController" customModule="ToDoSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="HYd-7U-Alb"/>
                         <viewControllerLayoutGuide type="bottom" id="N3n-kg-bZ8"/>
@@ -101,7 +101,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Sx8-mK-yzP" customClass="ItemCell" customModule="ToDoSwift" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ItemCell" id="Sx8-mK-yzP" customClass="ItemCell" customModule="ToDoSwift" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Sx8-mK-yzP" id="bjt-cs-aLk">
@@ -150,7 +150,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Pending Tasks" id="xFR-21-H99">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GBG-38-lm1"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="GBG-38-lm1">
+                            <connections>
+                                <action selector="addNewToDoItem:" destination="SEb-5t-m9T" id="ify-7t-AV0"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="dataProvider" destination="LfX-aI-mTW" id="rV8-Tt-H1L"/>
@@ -158,7 +162,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yog-LG-5wm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="LfX-aI-mTW" customClass="PendingTasksDataProvider" customModule="ToDoSwift" customModuleProvider="target"/>
+                <customObject id="LfX-aI-mTW" customClass="TasksDataProvider" customModule="ToDoSwift" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="1461.5999999999999" y="-225.33733133433284"/>
         </scene>
@@ -184,7 +188,7 @@
         <scene sceneID="TNM-Uv-ZGs">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="g8d-pi-8Pt" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Pending Tasks" id="9xj-pz-0VA"/>
+                    <tabBarItem key="tabBarItem" title="Pending Tasks" image="pending-tasks" id="9xj-pz-0VA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="gXD-bT-HeF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -203,7 +207,7 @@
         <scene sceneID="28D-yl-DE4">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7dv-tU-g3Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Done Tasks" id="sGx-a6-T5U"/>
+                    <tabBarItem key="tabBarItem" title="Done Tasks" image="completed-tasks" id="sGx-a6-T5U"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZtI-qE-jzd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -219,4 +223,8 @@
             <point key="canvasLocation" x="522.39999999999998" y="429.53523238380814"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="completed-tasks" width="256" height="256"/>
+        <image name="pending-tasks" width="256" height="256"/>
+    </resources>
 </document>
